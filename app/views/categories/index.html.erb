@@ -1,0 +1,14 @@
+<h1>LISTANDO CATEGORIAS</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Item</th>
+  </tr>
+ 
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+      <td><%= category.item %></td>
+    </tr>
+  <% end %>
+</table>
