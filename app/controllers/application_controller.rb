@@ -1,11 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :current_order
+  before_action :current_cart
 
-  def current_order
-    session{:cart} ||= []
-    session{:cart} 
+  def current_cart
+    session[:cart] ||= []
   end
 
 end
