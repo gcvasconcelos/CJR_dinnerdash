@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   
   root 'sessions#new'
-  # root "items#index"
+  #root "items#index"
 end

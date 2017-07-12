@@ -14,7 +14,9 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= item.price %></td>
-        <td><% link_to 'Cart', add_cart_path(item) %></td>
+        <td><% link_to "Cart", add_cart_path(@item) %>
+          <a href="/cart">Cart</a>
+        </td>
       </tr>
     <% end %>
 </div>
