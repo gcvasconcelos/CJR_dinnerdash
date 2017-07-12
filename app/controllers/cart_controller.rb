@@ -4,6 +4,9 @@ class CartController < ApplicationController
 	end
 
 	def add
-		current_cart << params[:item]
+		current_cart << {item_id: params[:id], quantity: 1}
+		@items = []
+		current_cart.each ||
+		@items << Item.find(params[:id])
 	end
 end
