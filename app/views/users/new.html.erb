@@ -1,21 +1,33 @@
-<% @page_title = "UserAuth | Signup" %>
-<div class="Sign_Form">
-	<div class="container-fluid">
-	  <h1>Sign Up</h1>
-	  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
-	    <p> Name:</br> <%= f.text_field :name %> </p>
-	  	<p> Nickname:</br> <%= f.text_field :nickname %> </p>
-	    <p> Email:</br> <%= f.text_field :email %> </p>
-	    <p> Password:</br> <%= f.password_field :password %></p>
-	    <p> Password Confirmation:</br> <%= f.password_field :password_confirmation %> </p>
-	    <%= f.submit :Signup %>
-	  <% end %>
-	  <% if @user.errors.any? %>
-	    <ul class="Signup_Errors">
-	    <% for message_error in @user.errors.full_messages %>
-	      <li>* <%= message_error %></li>
-	    <% end %>
-	    </ul>
-	  <% end %>
-	</div>
-</div>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert-error">
+        O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
+      </div>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Cadastrar"%>
+  </div>
+<% end %>
