@@ -14,11 +14,9 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= item.price %></td>
-        <td><%= link_to 'Add to Cart', add_cart_path(item) %></td>
-<!--         <td><%= link_to 'Show', item_path(item) %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
- -->   </tr>
-    <% end %>  
+        <td><% link_to 'Cart', add_cart_path(item) %></td>
+      </tr>
+    <% end %>
 </div>
 
 </table>
