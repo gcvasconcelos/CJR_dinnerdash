@@ -17,9 +17,9 @@
 	      <a class="navbar-brand" href="#">DinnerDash</a>
 	    </div>
 	    <ul class="nav nav-pills">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="#">Meu Carrinho</a></li>
-	      <li><a href="#">Meu Perfil</a></li>
+	      <li class="active"><%= link_to "Home", items_path %></li>
+        <li><%= link_to "My Cart", cart_path %></li>
+	      <li><%= link_to "My Profile" %></li>
 	    </ul>
 	    <ul class="nav navbar-right">
 	    	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -28,6 +28,7 @@
 		</nav>
 
   	<div class="container">
+      <%= render 'layouts/header' %>
     	<%= yield %>
   	</div>
   </body>

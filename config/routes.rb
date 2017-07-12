@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'users/new'
   get 'users/create'
   post 'users/create'
@@ -9,6 +11,13 @@ Rails.application.routes.draw do
   resources :items
   resources :orders
   resources :category
+  resources :users
 
-  root "items#index"
+  get 'sign_in' => 'sessions#new'
+  post 'sign_in' => 'sessions#create'
+  delete 'sign_out' => 'sessions#destroy'
+
+  
+  root 'sessions#new'
+  # root "items#index"
 end

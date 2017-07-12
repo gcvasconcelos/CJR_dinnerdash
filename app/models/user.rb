@@ -1,8 +1,14 @@
 class User < ApplicationRecord
-	attr_accessor :password
-	EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
-	validates :name, :presence => true, :length => { :in => 3..20 }
-	validates :nickname, :presence => true, :uniqueness => true, :length => { :in => 3..10 }
-  validates :password, :confirmation => true
-  validates_length_of :password, :in => 6..20, :on => :create
+	has_secure_password 
+
+	validates :name, presence: true, length: { maximum: 50 }
+	validates :password, presence: true, length: { minimum: 6 }
+  
+  VALID_EMAIL_FORMAT= /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates :email, presence: true, 
+  								 length: { maximum: 200 },
+  								 format: { with: VALID_EMAIL_FORMAT },
+  								 uniqueness: {case_sensitive: false}
+
+  before_save { self.email = email.downcase }
 end
