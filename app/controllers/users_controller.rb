@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorize, except: [:new, :create]
+  before_action :correct_user?, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def edit
       @user = User.find(params[:id]) 
-    end
+  end
    
   def update
     @user = User.find(params[:id]) 
