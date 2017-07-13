@@ -29,15 +29,20 @@
           <% end %>
         </li>
         <li>
+         <%= link_to sign_out_path, method: :delete, class: "button" do %>
+           <i class="glyphicon glyphicon-log-in"></i>&nbsp; Sign out
+         <% end %>
+       </li>
+        <li>
           <%= link_to sign_in_path, class: "button" do %>
             <i class="glyphicon glyphicon-log-in"></i>&nbsp; Log In
           <% end %>
         </li>
+
 	    </ul>
 		</nav>
 
   	<div class="container">
-      <%= render 'layouts/header' %>
     	<%= yield %>
   	</div>
   </body>
