@@ -1,31 +1,27 @@
-<<<<<<< HEAD
+<h1>My Cart</h1>
+<br>
 <div class="container">
-	<table class="table">
-=======
-<table class="table table-striped">
->>>>>>> 78a883cb82bbced1253ebec0bbd78d6afa4f7717
-	<tr>
-		<th>Item</th>
-		<th>Quantity</th>
-		<th>Remove</th>
-	</tr>
-	<%= @cart.each do |item| %>
-	<tr>
-<<<<<<< HEAD
-		<td><%= item[:item_id] %></td>
-		<td><%= item[:quantity] %></td>
-=======
-		<td>
-			<%= item[:item_id] %>
-		</td>
-		<td>
-			<%= item[:quantity] %>
-		</td>
-		<td>
-			<%= <%= link_to "Remove", remove_cart_path(@item) %>
-		</td>
->>>>>>> 78a883cb82bbced1253ebec0bbd78d6afa4f7717
-	</tr>
-	<% end %>
-</table>	
+	<table class="table table-striped">
+		<tr>
+			<th style="text-align: center" >Item</th>
+			<th style="text-align: center">Quantity</th>
+			<th></th>
+		</tr>
+		<% @cart.each do |item| %>
+			<tr>
+				<td><%= item["item_id"] %></td>
+				<td>
+					<%= link_to plus_cart_path(item["item_id"]), class: "button" do %>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+					<%= item["quantity"] %>
+					<%= link_to minus_cart_path(item["item_id"]), class: "button" do %>
+            <i class="glyphicon glyphicon-minus"></i>
+          <% end %>
+				</td>
+				<td><%= link_to "Remove	", remove_cart_path(item), method: :delete, remote: true %></td>
+			</tr>
+		<% end %>
+	</table>	
 </div>
+

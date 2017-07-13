@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   post 'users/create'
   get 'cart' => 'cart#show'
   get 'cart/:id' => 'cart#add', as: :add_cart
+  get 'cart/:id' => 'cart#plus', as: :plus_cart
+  delete 'cart/:id' => 'cart#minus', as: :minus_cart
+  delete 'cart/' => 'cart#remove', as: :remove_cart
 
   resources :items
   resources :orders
@@ -18,6 +21,6 @@ Rails.application.routes.draw do
   delete 'sign_out' => 'sessions#destroy'
 
   
-  root 'sessions#new'
-  #root "items#index"
+  # root 'sessions#new'
+  root "items#index"
 end

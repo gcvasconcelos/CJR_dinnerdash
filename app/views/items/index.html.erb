@@ -14,11 +14,16 @@
         <td><%= item.name %></td>
         <td><%= item.description %></td>
         <td><%= item.price %></td>
-        <td><%= link_to "Cart", add_cart_path(item) %></td>
+        <td>      
+          <%= link_to add_cart_path(item), class: "button" do %>
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
 </div>
 
-
-<%= link_to 'New item', new_item_path %>
+<% #if current_user.try(:admin?) %>
+  <%= link_to 'New item', new_item_path %>
+<% #end %>
