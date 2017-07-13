@@ -1,13 +1,30 @@
+<<<<<<< HEAD
 <div class="container">
 	<table class="table">
+=======
+<table class="table table-striped">
+>>>>>>> 78a883cb82bbced1253ebec0bbd78d6afa4f7717
 	<tr>
 		<th>Item</th>
 		<th>Quantity</th>
+		<th>Remove</th>
 	</tr>
 	<%= @cart.each do |item| %>
 	<tr>
+<<<<<<< HEAD
 		<td><%= item[:item_id] %></td>
 		<td><%= item[:quantity] %></td>
+=======
+		<td>
+			<%= item[:item_id] %>
+		</td>
+		<td>
+			<%= item[:quantity] %>
+		</td>
+		<td>
+			<%= <%= link_to "Remove", remove_cart_path(@item) %>
+		</td>
+>>>>>>> 78a883cb82bbced1253ebec0bbd78d6afa4f7717
 	</tr>
 	<% end %>
 </table>	
