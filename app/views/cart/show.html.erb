@@ -1,17 +1,19 @@
-<p><%= @cart %></p>
-
 <table class="table table-striped">
 	<tr>
 		<th>Item</th>
 		<th>Quantity</th>
+		<th>Remove</th>
 	</tr>
 	<% @cart.each do |item| %>
 	<tr>
 		<td>
-			<% item[:item_id] %>
+			<%= item[:item_id] %>
 		</td>
 		<td>
 			<%= item[:quantity] %>
+		</td>
+		<td>
+			<%= <%= link_to "Remove", remove_cart_path(@item) %>
 		</td>
 	</tr>
 	<% end %>
