@@ -10,7 +10,7 @@
       <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
     </div> <br>
     <div class="actions">
-      <%= f.submit "Log in" %>
+      <%= f.submit "Log in", class: "btn btn-primary" %>
     </div> <br>
     <p style="font-size: 20px;">New user? <%= link_to "Sign up now!", new_user_path %></p>
   <% end %>
