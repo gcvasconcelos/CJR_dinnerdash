@@ -1,7 +1,29 @@
-<h1>User Settings</h1><br>
-<%= render 'form' %>
-
-<ul>
-	<li><%= link_to "Edit", edit_user_path(current_user) %></li>
-	<li><%= link_to "Delete", @user, method: :delete%></li>
-</ul>  
+<h1>User Settings</h1>
+<br>
+<div class="container">
+  <%= form_for @user do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <div class="alert-error">
+          O formulário contém <%= pluralize(@user.errors.count, "erro") %>.
+        </div>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password, placeholder: "New password" %>
+    </div>
+    <div class="field">
+      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+    </div><br>
+    <div class="actions">
+      <%= f.submit "Change password", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <br>
+</div>

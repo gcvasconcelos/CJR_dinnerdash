@@ -1,18 +1,14 @@
-<p><%= @cart %></p>
-
-<table class="table table-striped">
+<div class="container">
+	<table class="table">
 	<tr>
 		<th>Item</th>
 		<th>Quantity</th>
 	</tr>
-	<% @cart.each do |item| %>
+	<%= @cart.each do |item| %>
 	<tr>
-		<td>
-			<% item[:item_id] %>
-		</td>
-		<td>
-			<%= item[:quantity] %>
-		</td>
+		<td><%= item[:item_id] %></td>
+		<td><%= item[:quantity] %></td>
 	</tr>
 	<% end %>
-</table>
+</table>	
+</div>
