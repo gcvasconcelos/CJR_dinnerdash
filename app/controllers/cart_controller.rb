@@ -8,5 +8,6 @@ class CartController < ApplicationController
 		@items = []
 		current_cart.each ||
 		@items << Item.find(params[:id])
+		redirect_to :cart
 	end
 end
