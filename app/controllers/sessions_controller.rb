@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :block_access, except: [:destroy]
+  before_action :admin?
 
   def new
   end
@@ -18,5 +19,9 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to root_url
+  end
+
+  def admin?
+    block_access if !logged_in?
   end
 end

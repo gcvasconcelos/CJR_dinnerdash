@@ -3,6 +3,7 @@ class Order < ApplicationRecord
 	validates :items, presence: true
 	before_create :set_status
 	before_save :update_subtotal
+	before_action :authenticate_user!
 
 	def subtotal
 		order_items.collect { |i| i.valid? ? (i.quantity * i.unit_price) : 0 }.sum
