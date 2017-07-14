@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
   get 'sessions/new'
 
   get 'users/new'
@@ -8,8 +14,9 @@ Rails.application.routes.draw do
   get 'cart/:id' => 'cart#add', as: :add_cart
 
   resources :items
+  resources :searches
   resources :orders
-  resources :category
+  resources :categories
   resources :users
 
   get 'sign_in' => 'sessions#new'
@@ -17,6 +24,6 @@ Rails.application.routes.draw do
   delete 'sign_out' => 'sessions#destroy'
 
   
-  root 'sessions#new'
-  #root "items#index"
+  #root 'sessions#new'
+  root "items#index"
 end

@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
+  
   def index
-  	@items = Item.all
+    @items = Item.search(params[:search])
+    #@items = Item.all
+    #@order_item = current_order.order_items.new
   end
 
   def new
@@ -33,6 +36,13 @@ class ItemsController < ApplicationController
   	else
     	render 'edit'
   	end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+ 
+    redirect_to items_path
   end
 
   private
