@@ -10,25 +10,41 @@
 <div class="container">
   <table class="table table-striped">
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Add to cart</th>
+      <th style="text-align: center;">Name</th>
+      <th style="text-align: center;">Description</th>
+      <th style="text-align: center;">Price</th>
+      <th style="text-align: center;">Add to cart</th>
     </tr>
    
     <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
-        <td><%= item.description %></td>
+        <td>
+          <%= link_to item_path(item), class: "button" do %>
+            <i class="glyphicon glyphicon-share "></i>
+          <% end %>
+        </td>
         <td><%= item.price %></td>
+<<<<<<< HEAD
         <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
         <td><% link_to "Cart", add_cart_path(item) %>
           <a href="/cart">Cart</a>
+=======
+        <td>      
+          <%= link_to add_cart_path(item), class: "button" do %>
+            <i class="glyphicon glyphicon-shopping-cart"></i>
+          <% end %>
+>>>>>>> 376a3057696c115e16b2faf0e4765697f58a8544
         </td>
+        <% if current_user.try(:admin?) %>
+          <td><%= link_to 'Edit item', edit_item_path %></td>
+          <td><%= link_to 'Delete item', delete_item_path  %></td>
+        <% end %>
       </tr>
     <% end %>
+  </table>
 </div>
 
-</table>
-
-<%= link_to 'New item', new_item_path %>
+<% if current_user.try(:admin?) %>
+  <%= link_to 'New item', new_item_path %>
+<% end %>

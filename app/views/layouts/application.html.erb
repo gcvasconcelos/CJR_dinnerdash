@@ -19,16 +19,29 @@
 	    <ul class="nav nav-pills">
 	      <li class="active"><%= link_to "Home", items_path %></li>
         <li><%= link_to "My Cart", cart_path %></li>
-	      <li><%= link_to "My Profile" %></li>
+	      <li><%= link_to "My Profile", current_user %></li>
 	    </ul>
 	    <ul class="nav navbar-right">
-	    	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li>
+          <%= link_to new_user_path, class: "button" do %>
+            <i class="glyphicon glyphicon-user"></i>&nbsp; Sign In
+          <% end %>
+        </li>
+        <li>
+         <%= link_to sign_out_path, method: :delete, class: "button" do %>
+           <i class="glyphicon glyphicon-log-in"></i>&nbsp; Sign out
+         <% end %>
+       </li>
+        <li>
+          <%= link_to sign_in_path, class: "button" do %>
+            <i class="glyphicon glyphicon-log-in"></i>&nbsp; Log In
+          <% end %>
+        </li>
+
 	    </ul>
 		</nav>
 
   	<div class="container">
-      <%= render 'layouts/header' %>
     	<%= yield %>
   	</div>
   </body>

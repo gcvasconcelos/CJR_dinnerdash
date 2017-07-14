@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :admin? %i[new, create, edit, update, destroy]
+
   def index
     @categories = Category.all
   end
@@ -40,6 +42,10 @@ class CategoriesController < ApplicationController
     @category.destroy
  
     redirect_to category_path
+  end
+
+  def admin?
+    block_access if !logged_in?
   end
  
   private

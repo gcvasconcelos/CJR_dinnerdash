@@ -1,18 +1,27 @@
-<p><%= @cart %></p>
+<h1>My Cart</h1>
+<br>
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th style="text-align: center" >Item</th>
+			<th style="text-align: center">Quantity</th>
+			<th></th>
+		</tr>
+		<% @cart.each do |item| %>
+			<tr>
+				<td><%= item["item_id"] %></td>
+				<td>
+					<%= link_to plus_cart_path(item["item_id"]), class: "button" do %>
+            <i class="glyphicon glyphicon-plus"></i>
+          <% end %>
+					<%= item["quantity"] %>
+					<%= link_to minus_cart_path(item["item_id"]), class: "button" do %>
+            <i class="glyphicon glyphicon-minus"></i>
+          <% end %>
+				</td>
+				<td><%= link_to "Remove	", remove_cart_path(item), method: :delete, remote: true %></td>
+			</tr>
+		<% end %>
+	</table>	
+</div>
 
-<table class="table table-striped">
-	<tr>
-		<th>Item</th>
-		<th>Quantity</th>
-	</tr>
-	<% @cart.each do |item| %>
-	<tr>
-		<td>
-			<% item.name %>
-		</td>
-		<td>
-			1
-		</td>
-	</tr>
-	<% end %>
-</table>

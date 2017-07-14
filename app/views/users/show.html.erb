@@ -1,6 +1,12 @@
 <html>
-  <body>
-		<h3>Perfil de <%= @user.name %> </h3>
-		<%= @user.email %>
+	<body>
+		<h1> Perfil de <%= @user.name %> </h3><br>
+		<p style="font-size: 20px;">
+			Seu email: <%= @user.email %>
+		</p>
+		<br><br>
+		<% if current_user == @user %>
+      <p style="font-size: 20px;"><%= link_to "Change Password", edit_user_path(current_user) %>&emsp;&emsp;&emsp;<%= link_to "Delete profile", @user, method: :delete%></p> 
+		<%end%>
 	</body>
 </html>

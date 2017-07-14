@@ -38,11 +38,17 @@ class ItemsController < ApplicationController
   	end
   end
 
+<<<<<<< HEAD
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
  
     redirect_to items_path
+=======
+  def delete
+    @item = Item.find(params[:id])
+    @item.destroy
+>>>>>>> 376a3057696c115e16b2faf0e4765697f58a8544
   end
 
   private

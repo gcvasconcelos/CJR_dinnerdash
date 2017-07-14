@@ -1,3 +1,5 @@
+<h1>User Settings</h1>
+<br>
 <div class="container">
   <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
@@ -12,25 +14,15 @@
         </ul>
       </div>
     <% end %>
-    <div class="field">
-      <%= f.text_field :name, placeholder: "Name" %>
     </div>
     <div class="field">
-      <%= f.email_field :email, placeholder: "email" %>
-    </div>
-    <div class="field">
-      <%= f.password_field :password, placeholder: "Password" %>
+      <%= f.password_field :password, placeholder: "New password" %>
     </div>
     <div class="field">
       <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
-    </div>
-    <br>
-    <div class="field" style="font-size: 20px;">
-      <%= f.check_box :admin %>Admin?
-    </div>
-    <br>
+    </div><br>
     <div class="actions">
-      <%= f.submit "Cadastrar", class: "btn btn-primary" %>
+      <%= f.submit "Change password", class: "btn btn-primary" %>
     </div>
   <% end %>
   <br>
