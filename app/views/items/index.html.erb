@@ -25,16 +25,10 @@
           <% end %>
         </td>
         <td><%= item.price %></td>
-<<<<<<< HEAD
-        <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-        <td><% link_to "Cart", add_cart_path(item) %>
-          <a href="/cart">Cart</a>
-=======
-        <td>      
+        <td>   
           <%= link_to add_cart_path(item), class: "button" do %>
             <i class="glyphicon glyphicon-shopping-cart"></i>
           <% end %>
->>>>>>> 376a3057696c115e16b2faf0e4765697f58a8544
         </td>
         <% if current_user.try(:admin?) %>
           <td><%= link_to 'Edit item', edit_item_path %></td>

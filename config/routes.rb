@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
+
   get 'order_items/create'
 
   get 'order_items/update'
 
   get 'order_items/destroy'
 
-=======
   devise_for :users
->>>>>>> 376a3057696c115e16b2faf0e4765697f58a8544
+
   get 'sessions/new'
 
   get 'users/new'
@@ -30,11 +29,6 @@ Rails.application.routes.draw do
   post 'sign_in' => 'sessions#create'
   delete 'sign_out' => 'sessions#destroy'
 
-  
-<<<<<<< HEAD
   #root 'sessions#new'
-=======
-  # root 'sessions#new'
->>>>>>> 376a3057696c115e16b2faf0e4765697f58a8544
   root "items#index"
 end

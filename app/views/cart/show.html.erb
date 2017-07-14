@@ -15,13 +15,14 @@
             <i class="glyphicon glyphicon-plus"></i>
           <% end %>
 					<%= item["quantity"] %>
+					<% if false %>
 					<%= link_to minus_cart_path(item["item_id"]), class: "button" do %>
             <i class="glyphicon glyphicon-minus"></i>
           <% end %>
+          <% end %>
 				</td>
-				<td><%= link_to "Remove	", remove_cart_path(item), method: :delete, remote: true %></td>
+				<td><%= link_to "Remove", remove_cart_path(item), method: :delete, remote: true %></td>
 			</tr>
 		<% end %>
 	</table>	
 </div>
-

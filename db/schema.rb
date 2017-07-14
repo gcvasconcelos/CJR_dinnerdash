@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170714005557) do
-=======
-ActiveRecord::Schema.define(version: 20170713014725) do
->>>>>>> 376a3057696c115e16b2faf0e4765697f58a8544
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.string "item"
-    t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,8 +79,9 @@ ActiveRecord::Schema.define(version: 20170713014725) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email", default: "", null: false
+    t.string "name"
+    t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
