@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :admin? %i[new, create, edit, update, destroy]
+  # before_action :admin? %i[new, create, edit, update, destroy]
 
   def index
     @categories = Category.all
