@@ -1,24 +1,5 @@
-# README
+# Dinner Dash
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An online ordering system for a restaurant which offers the functionality for restaurant customers to order food and restaurant administrators to process and complete those orders.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The project was developed in the Trainee process of [CJR](https://www.cjr.org.br/), Junior Enterprise 2017/2.
