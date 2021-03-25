@@ -1,4 +1,4 @@
-# Dinner Dash
+# CJR - Dinner Dash
 
 An online ordering system for a restaurant which offers the functionality for restaurant customers to order food and restaurant administrators to process and complete those orders.
 
